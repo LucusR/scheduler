@@ -23,6 +23,18 @@ const setDay = day => setState({ ...state, day });
 }, []);
 
 
+function getDayId (day) {
+  const daysData = {
+    Monday: 0,
+    Tuesday: 1,
+    Wednesday: 2,
+    Thursday: 3,
+    Friday: 4,
+    }
+    return daysData[day]
+}
+
+
 function bookInterview(id, interview) {
 
   const appointment = {
@@ -35,10 +47,18 @@ function bookInterview(id, interview) {
     [id]: appointment
   }
 
-  
+  const currentDay = getDayId(state.day)
+
+  const day = {
+    ...state.days[currentDay],
+    spots: state.days[currentDay].spots - 1
+  }
+
+  let days = state.days
+  days[currentDay] = day;
   
   return axios.put(`/api/appointments/${id}`, {interview})
-  
+  .then(() => {setState({...state, appointments, days})});
 };
 
 function cancelInterview(id) {
@@ -53,10 +73,19 @@ function cancelInterview(id) {
     [id]: appointment
   };
 
-  
+  const currentDay = getDayId(state.day)
+
+  const day = {
+    ...state.days[currentDay],
+    spots: state.days[currentDay].spots + 1
+  }
+
+  let days = state.days
+  days[currentDay] = day;
+
   
   return axios.delete(`/api/appointments/${id}`,)
-  
+  .then(() => {setState({...state, appointments, days})})
 }
 
   return {
