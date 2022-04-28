@@ -1,17 +1,21 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React from "react";
 import "../styles/Application.scss";
 import DayList from "components/DayList.js";
 import Appointment from "components/Appointment";
-import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData"
+import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 
-export default function Application(props) {
+
+export default function Application() {
 
 const {state, setDay, bookInterview, cancelInterview} = useApplicationData();
+
 const interviewers = getInterviewersForDay(state, state.day);
 const appointments = getAppointmentsForDay(state, state.day);
+
 const schedule = appointments.map((appointment) => {
 const interview = getInterview(state, appointment.interview);
+
 
   return (
     <Appointment

@@ -43,7 +43,7 @@ export default function Appointment(props) {
     .then(() => transition(EMPTY))
     .catch(error => transition(ERROR_ON_DELETE));
   }
-  
+
   return (
   <article className="appointment">
     <Header 
