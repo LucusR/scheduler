@@ -2,9 +2,8 @@ import React from "react";
 import "../styles/Application.scss";
 import DayList from "components/DayList.js";
 import Appointment from "components/Appointment";
-import useApplicationData from "hooks/useApplicationData"
+import useApplicationData from "hooks/useApplicationData";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
-
 
 export default function Application() {
 
@@ -15,7 +14,6 @@ const appointments = getAppointmentsForDay(state, state.day);
 
 const schedule = appointments.map((appointment) => {
 const interview = getInterview(state, appointment.interview);
-
 
   return (
     <Appointment
