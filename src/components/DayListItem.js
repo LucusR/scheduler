@@ -5,13 +5,12 @@ import "../styles/DayListItem.scss";
 export default function DayListItem(props) {
 
 const formatSpots = () => {
-  const spots = props.spots
-  if(spots === 0) {
+  if(props.spots === 0) {
     return 'no spots remaining'
-  } else if (spots === 1) {
+  } else if (props.spots === 1) {
     return '1 spot remaining'
   } else {
-    return `${spots} spots remaining`;
+    return `${props.spots} spots remaining`;
   }
   }
 
@@ -21,9 +20,9 @@ const dayClass = classNames("day-list__item", {
 })
 
   return (
-    <li className={dayClass}  selected={props.selected} onClick={() => props.setDay(props.name)}>
+    <li className={dayClass} onClick={() => props.setDay(props.name)} data-testid={"day"}> 
       <h2 className="text--regular">{props.name}</h2> 
-      <h3 className="text--light">{formatSpots()}</h3>
+      <h3 className="text--light">{formatSpots}</h3>
     </li>
   );
 }
