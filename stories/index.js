@@ -1,11 +1,7 @@
 import React, { Fragment } from 'react'
-
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-
-
 import "index.scss";
-
 import Button from "components/Button";
 
 storiesOf("Button", module)
@@ -129,7 +125,7 @@ storiesOf("Button", module)
   .add("Selected", () => (
     <InterviewerList
       interviewers={interviewers}
-      interviewer={3}
+      value={3}
     />
   ))
   .add("Clickable", () => (
@@ -156,7 +152,7 @@ storiesOf("Button", module)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
-  .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewers} onEdit={action("onEdit")} onDelete={action("onDelete")} />)
+  .add("Show", () => <Show student="Lydia Miller-Jones" interviewer={interviewer} onEdit={action("onEdit")} onDelete={action("onDelete")} />)
   .add("Confirm", () => <Confirm message="Delete the appointment?" onConfirm={action("onConfirm")} onCancel={action("onCancel")} />)
   .add("Status", () => <Status message="Deleting"/>)
   .add("Error", () => <Error message="Could not delete appointment." onClose={action("onClose")}/>)
