@@ -20,5 +20,5 @@ if (history.length > 1) {
   setMode(history[history.length-1])
 }
 }
-  return { mode, transition, back };
+  return { mode, transition, back, setHistory };
 }
