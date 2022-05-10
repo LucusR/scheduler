@@ -21,6 +21,14 @@ This app was built for educational purposes - proceed with caution!
 ### 4) Interviews can be deleted after confirmation.
 ![Alt text](https://github.com/LucusR/scheduler/blob/master/public/images/readmeImages/4.png)
 
+## Dependencies
+
+- Axios
+- Classnames
+- React
+- React-dom
+- React-scripts
+
 ## Setup
 
 Install dependencies with `npm install`.
