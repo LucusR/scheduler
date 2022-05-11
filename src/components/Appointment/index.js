@@ -100,14 +100,14 @@ export default function Appointment(props) {
   {mode === ERROR_ON_SAVE && (
     <Error 
      message="Error: Could not save appointment. Please try again."
-     onCancel={() => transition(CREATE)}
+     onCancel={back}
     />
   )}
 
 {mode === ERROR_ON_DELETE && (
     <Error 
     message="Error: Could not delete appointment. Please try again."
-    onCancel={() => transition(SHOW)}
+    onCancel={back}
     />
   )}
   </article>
